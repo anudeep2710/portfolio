@@ -1,0 +1,61 @@
+/* Smooth scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Remove default margins */
+.App {
+    margin: 0;
+    padding: 0;
+}
+
+/* Custom scrollbar for webkit browsers */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #0f172a;
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, #6366f1, #a855f7);
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(180deg, #4f46e5, #9333ea);
+}
+
+/* Glow animation for buttons */
+@keyframes glow {
+    0%, 100% {
+        box-shadow: 0 0 20px rgba(168, 85, 247, 0.4);
+    }
+    50% {
+        box-shadow: 0 0 40px rgba(168, 85, 247, 0.6);
+    }
+}
+
+/* Floating animation */
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+/* Gradient animation */
+@keyframes gradient-shift {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
