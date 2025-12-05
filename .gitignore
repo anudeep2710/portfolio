@@ -1,0 +1,25 @@
+# Portfolio files
+*.log
+.DS_Store
+Thumbs.db
+.env
+.env.local
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Dependencies (if you add a build step later)
+node_modules/
+package-lock.json
+yarn.lock
+
+# Build outputs
+dist/
+build/
+
+# Deployment
+.vercel
+.netlify
