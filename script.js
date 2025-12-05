@@ -465,3 +465,100 @@ const consoleStyles = [
 console.log('%c👋 Welcome to my portfolio!', consoleStyles[0]);
 console.log('%cLooking under the hood? I like your style!', consoleStyles[1]);
 console.log('%c📧 Email: anudeepbatchu10@gmail.com', consoleStyles[2]);
+
+// ===========================
+// Enhanced Mobile Responsiveness
+// ===========================
+
+// Detect mobile device
+const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+const isTouch = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+
+// Disable 3D tilt on mobile for performance
+if (isMobile || isTouch) {
+    // Remove 3D tilt listeners on mobile
+    document.querySelectorAll('.project-card, .research-card, .achievement-card, .info-card').forEach(card => {
+        card.style.transform = '';
+    });
+}
+
+// Optimize particle count for mobile
+if (isMobile && typeof init3DBackground === 'function') {
+    const originalInit = init3DBackground;
+    init3DBackground = function() {
+        const particleCountBackup = 1500;
+        // Reduce particles on mobile
+        window.mobileParticleCount = 500;
+        originalInit();
+    };
+}
+
+// Prevent zoom on double tap (iOS)
+let lastTouchEnd = 0;
+document.addEventListener('touchend', function(event) {
+    const now = Date.now();
+    if (now - lastTouchEnd <= 300) {
+        event.preventDefault();
+    }
+    lastTouchEnd = now;
+}, {passive: false});
+
+// Better viewport height handling for mobile browsers
+function setVH() {
+    const vh = window.innerHeight * 0.01;
+    document.documentElement.style.setProperty('--vh', vh + 'px');
+}
+
+setVH();
+window.addEventListener('resize', setVH);
+window.addEventListener('orientationchange', setVH);
+
+// Smooth scroll behavior for iOS
+if (isMobile) {
+    document.documentElement.style.scrollBehavior = 'smooth';
+}
+
+// Close mobile menu on outside click
+if (navMenu) {
+    document.addEventListener('click', (e) => {
+        const isClickInsideMenu = navMenu.contains(e.target);
+        const isClickOnToggle = navToggle?.contains(e.target);
+        
+        if (!isClickInsideMenu && !isClickOnToggle && navMenu.classList.contains('active')) {
+            navMenu.classList.remove('active');
+            navToggle?.classList.remove('active');
+            const spans = navToggle?.querySelectorAll('span');
+            spans?.forEach(span => {
+                span.style.transform = '';
+                span.style.opacity = '';
+            });
+        }
+    });
+}
+
+// Optimize scroll performance on mobile
+let ticking = false;
+function optimizedScroll(callback) {
+    if (!ticking) {
+        window.requestAnimationFrame(() => {
+            callback();
+            ticking = false;
+        });
+        ticking = true;
+    }
+}
+
+// Add touch feedback for buttons
+if (isTouch) {
+    document.querySelectorAll('.btn, .project-link, .social-link').forEach(button => {
+        button.addEventListener('touchstart', function() {
+            this.style.transform = 'scale(0.98)';
+        }, {passive: true});
+        
+        button.addEventListener('touchend', function() {
+            setTimeout(() => {
+                this.style.transform = '';
+            }, 100);
+        }, {passive: true});
+    });
+}
