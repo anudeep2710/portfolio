@@ -263,23 +263,23 @@
                 <!-- Project 00: Uncertainty-RAG -->
                 <div class="project-card" data-category="ai nlp">
                     <div class="project-header">
-                        <h3 class="project-title">Uncertainty-RAG</h3>
+                        <h3 class="project-title">Uncertainty-Guided Hierarchical Retrieval</h3>
                         <span class="project-year">2025</span>
                     </div>
                     <div class="project-tags">
+                        <span class="tag">Python 3.10+</span>
                         <span class="tag">RAG</span>
-                        <span class="tag">NLP</span>
-                        <span class="tag">Python</span>
+                        <span class="tag">SLMs</span>
                         <span class="tag">Research</span>
                     </div>
                     <p class="project-description">
-                        Research-oriented system improving response reliability for ambiguous queries by 
-                        handling uncertainty and reducing hallucinations in LLMs.
+                        Novel system for Small Language Models (SLMs) to navigate large documents using epistemic 
+                        uncertainty and information gain. Outperforms RAPTOR/MemTree by "zooming in" only when uncertain.
                     </p>
                     <ul class="project-highlights">
-                        <li>Designed robust RAG pipeline with uncertainty handling</li>
-                        <li>Evaluated model behavior under ambiguous inputs</li>
-                        <li>Focus on trustworthy and reliable AI systems</li>
+                        <li><strong>Epistemic Navigation:</strong> Quantifies SLM uncertainty to guide retrieval depth</li>
+                        <li><strong>Information Gain Scoring:</strong> Prioritizes nodes that maximize uncertainty reduction</li>
+                        <li><strong>Token Budget Constraint:</strong> Efficiently operates within 2-4k tokens regardless of document size</li>
                     </ul>
                     <div class="project-links">
                         <a href="https://github.com/anudeep2710/uncertainty-rag" class="project-link" target="_blank" rel="noopener">
