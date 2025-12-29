@@ -1518,3 +1518,84 @@ h6 {
         -moz-osx-font-smoothing: grayscale;
     }
 }
+
+/* ===========================
+   GitHub Calendar Customization
+   =========================== */
+.github-section {
+    margin-top: var(--spacing-lg);
+    width: 100%;
+    background: var(--color-bg-card);
+    border-radius: 12px;
+    padding: var(--spacing-md);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+}
+
+.subsection-title {
+    font-size: 1.25rem;
+    margin-bottom: var(--spacing-md);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--color-accent-cyan);
+}
+
+.calendar {
+    width: 100%;
+    min-height: 150px;
+    border: none !important;
+    color: var(--color-text-secondary) !important;
+}
+
+.calendar .width-full {
+    width: 100% !important;
+}
+
+.calendar text.wday,
+.calendar text.month {
+    fill: var(--color-text-muted) !important;
+    font-size: 0.75rem;
+}
+
+.contribution-calendar-label {
+    fill: var(--color-text-muted);
+}
+
+/* Customizing contribution colors for dark theme */
+:root {
+  --color-calendar-graph-day-bg: rgba(255, 255, 255, 0.05) !important;
+  --color-calendar-graph-day-L1-bg: rgba(0, 212, 255, 0.2) !important;
+  --color-calendar-graph-day-L2-bg: rgba(0, 212, 255, 0.4) !important;
+  --color-calendar-graph-day-L3-bg: rgba(0, 212, 255, 0.7) !important;
+  --color-calendar-graph-day-L4-bg: #00d4ff !important;
+}
+
+.calendar-loading {
+    text-align: center;
+    color: var(--color-text-muted);
+    padding: 2rem;
+    font-size: 0.9rem;
+}
+
+/* Response fix for calendar */
+@media (max-width: 768px) {
+    .github-section {
+        padding: var(--spacing-sm);
+        margin-top: var(--spacing-md);
+    }
+    
+    .calendar {
+        font-size: 10px;
+        scrollbar-width: none;  /* Firefox */
+        -ms-overflow-style: none;  /* IE and Edge */
+    }
+    
+    .calendar::-webkit-scrollbar {
+        display: none;
+    }
+    
+    .js-calendar-graph-svg {
+        width: 100%;
+    }
+}

@@ -562,3 +562,31 @@ if (isTouch) {
         }, {passive: true});
     });
 }
+
+// ===========================
+// GitHub Calendar Initialization
+// ===========================
+window.addEventListener('load', () => {
+    if (typeof GitHubCalendar !== 'undefined') {
+        GitHubCalendar(".calendar", "anudeep2710", {
+            responsive: true,
+            tooltips: true,
+            global_stats: false // Hide global stats to keep it cleaner
+        }).then(function() {
+            // Additional styling if needed after load
+            const container = document.querySelector('.calendar');
+            if(container) {
+                container.style.minHeight = 'auto';
+                // Remove loading message
+                const loader = document.querySelector('.calendar-loading');
+                if(loader) loader.style.display = 'none';
+            }
+        }).catch(err => {
+            console.error("Could not load GitHub calendar", err);
+            const container = document.querySelector('.calendar');
+            if(container) {
+                container.innerHTML = '<p style="color:var(--color-text-muted);text-align:center;">GitHub contribution graph currently unavailable.</p>';
+            }
+        });
+    }
+});
