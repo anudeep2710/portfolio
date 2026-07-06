@@ -14,6 +14,7 @@ window.addEventListener("scroll", setHeaderState, { passive: true });
 navToggle?.addEventListener("click", () => {
     const isOpen = nav?.classList.toggle("is-open") || false;
     navToggle.setAttribute("aria-expanded", String(isOpen));
+    navToggle.setAttribute("aria-label", isOpen ? "Close navigation menu" : "Open navigation menu");
     document.body.classList.toggle("nav-open", isOpen);
 });
 
@@ -21,6 +22,7 @@ navLinks.forEach((link) => {
     link.addEventListener("click", () => {
         nav?.classList.remove("is-open");
         navToggle?.setAttribute("aria-expanded", "false");
+        navToggle?.setAttribute("aria-label", "Open navigation menu");
         document.body.classList.remove("nav-open");
     });
 });
@@ -29,6 +31,7 @@ document.addEventListener("keydown", (event) => {
     if (event.key === "Escape" && nav?.classList.contains("is-open")) {
         nav.classList.remove("is-open");
         navToggle?.setAttribute("aria-expanded", "false");
+        navToggle?.setAttribute("aria-label", "Open navigation menu");
         document.body.classList.remove("nav-open");
     }
 });
