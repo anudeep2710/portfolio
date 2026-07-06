@@ -932,7 +932,7 @@ section:not(.hero) {
 
 .proof-board {
     display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-columns: repeat(4, minmax(0, 1fr));
     gap: 0.9rem;
 }
 
@@ -954,10 +954,36 @@ section:not(.hero) {
 
 .timeline li {
     display: grid;
-    grid-template-columns: 190px minmax(240px, 0.45fr) minmax(300px, 1fr);
-    gap: clamp(1rem, 3vw, 2rem);
+    grid-template-columns: 58px 180px minmax(220px, 0.42fr) minmax(280px, 1fr);
+    gap: clamp(0.9rem, 2.5vw, 1.7rem);
+    align-items: center;
     padding: 1.2rem 0;
     border-bottom: 1px solid var(--line);
+}
+
+.company-logo {
+    width: 52px;
+    height: 52px;
+    object-fit: contain;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    background: white;
+    box-shadow: 0 10px 26px rgba(21, 24, 19, 0.06);
+}
+
+.airdawg-logo {
+    background: #050505;
+}
+
+.ey-logo {
+    padding: 0.45rem;
+}
+
+.company-logo-text {
+    display: grid;
+    place-items: center;
+    color: var(--signal-strong);
+    font: 800 0.92rem/1 var(--mono);
 }
 
 .timeline span {
@@ -1049,8 +1075,12 @@ section:not(.hero) {
     }
 
     .timeline li {
-        grid-template-columns: 1fr;
+        grid-template-columns: 52px 1fr;
         gap: 0.45rem;
+    }
+
+    .timeline li > .company-logo {
+        grid-row: 1 / span 3;
     }
 }
 
