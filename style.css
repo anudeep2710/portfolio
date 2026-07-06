@@ -91,6 +91,13 @@ button:focus-visible {
 }
 
 .brand-mark {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.72rem;
+    color: var(--ink);
+}
+
+.brand-avatar {
     display: inline-grid;
     place-items: center;
     width: 44px;
@@ -100,6 +107,24 @@ button:focus-visible {
     background: var(--bg);
     font: 800 0.95rem/1 var(--display);
     letter-spacing: 0;
+}
+
+.brand-text {
+    display: grid;
+    gap: 0.12rem;
+    line-height: 1;
+}
+
+.brand-text strong {
+    font-family: var(--display);
+    font-size: 1.12rem;
+    letter-spacing: 0;
+}
+
+.brand-text small {
+    color: var(--muted);
+    font-family: var(--mono);
+    font-size: 0.7rem;
 }
 
 .site-nav {
@@ -186,6 +211,7 @@ button:focus-visible {
     z-index: 2;
 }
 
+.hero-name,
 .availability,
 .panel-label,
 .case-type,
@@ -196,9 +222,18 @@ button:focus-visible {
     letter-spacing: 0;
 }
 
+.hero-name {
+    margin: 0 0 0.75rem;
+    color: var(--ink);
+    font-family: var(--display);
+    font-size: clamp(1.45rem, 2.2vw, 2.15rem);
+    font-weight: 800;
+    line-height: 1;
+}
+
 .availability {
     display: inline-flex;
-    margin: 0 0 1.35rem;
+    margin: 0 0 1.15rem;
     padding: 0.55rem 0.8rem;
     background: rgba(29, 96, 77, 0.1);
     border: 1px solid rgba(29, 96, 77, 0.24);
@@ -1030,6 +1065,24 @@ section:not(.hero) {
         z-index: 1002;
     }
 
+    .brand-mark {
+        gap: 0.55rem;
+    }
+
+    .brand-avatar {
+        width: 40px;
+        height: 40px;
+        font-size: 0.85rem;
+    }
+
+    .brand-text strong {
+        font-size: 1rem;
+    }
+
+    .brand-text small {
+        display: none;
+    }
+
     .site-nav {
         position: fixed;
         inset: 0;
@@ -1059,6 +1112,10 @@ section:not(.hero) {
     h1 {
         font-size: clamp(2.45rem, 12.8vw, 3.95rem);
         line-height: 1.04;
+    }
+
+    .hero-name {
+        font-size: 1.35rem;
     }
 
     .hero-actions {
